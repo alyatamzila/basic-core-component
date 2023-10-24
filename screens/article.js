@@ -1,10 +1,13 @@
 import React from "react";
-import { ScrollView, Image, Box, Text } from "native-base";
+import { ScrollView, Image, Box, Text,} from "react-native";
 import Separator from "../components/separator";
 import Button from "../components/button";
-const ButtonHandler = () => {
-  alert("Button Handler");
-};
+
+  // Arrow Function
+  const buttonHandler = () => {
+    Alert.alert("Button Handler");
+  };
+// Functional Component
 const Article = () => {
   return (
     <ScrollView>
@@ -12,26 +15,20 @@ const Article = () => {
         source={{
           uri: "https://ce.ittelkom-sby.ac.id/wp-content/uploads/2020/09/WhatsApp-Image-2018-04-18-at-11.47.40-AM-1024x564-1.png",
         }}
-        height={100}
-        resizeMode="contain"
-        marginVertical={15}
+        style={styles.logo}
       />
-      <Box
-        paddingHorizontal={15}
-        paddingVertical={20}
-        backgroundColor="#eeeeee"
-      >
-        <Text fontSize={24} fontWeight="bold">
-          Benarkah Generasi Baru Generasi Strawberi? Tentu tidak dongg
+      <View style={styles.titleView}>
+        <Text style={styles.title}>
+          Benarkah Generasi Baru Generasi Strawberi? Ayo Belajar Growth Mindset
+          dari Kampus ITTelkom Surabaya
         </Text>
-      </Box>
-      <Box padding={3}>
+      </View>
+      <View style={styles.content}>
         <Image
           source={{
             uri: "https://ittelkom-sby.ac.id/wp-content/uploads/2022/10/asdfghkl-768x472.jpg",
           }}
-          height="220"
-          resizeMode="contain"
+          style={styles.mainImage}
         />
         <Separator height={10} />
         <Text>
@@ -97,14 +94,41 @@ const Article = () => {
           adalah generasi yang sangat kreatif, kritis, dan cerdas." Jelasnya.
         </Text>
         <Separator height={10} />
-        <Text fontWeight="bold">OCTOBER 12, 2022 </Text>
+        <Text style={{ fontWeight: "bold" }}>OCTOBER 12, 2023 </Text>
         <Separator height={10} />
-        <Box backgroundColor="gray" height={1} />
+        <View style={{ backgroundColor: "gray", height: 1 }} />
         <Separator height={20} />
-        <Button text="Share" onPress={ButtonHandler} />
+        <Button text="Share" onPress={buttonHandler} />
         <Separator height={70} />
-      </Box>
+      </View>
     </ScrollView>
   );
 };
+
+// Styles
+const styles = StyleSheet.create({
+  logo: {
+    height: 100,
+    resizeMode: "contain",
+    marginVertical: 15,
+  },
+  titleView: {
+    paddingHorizontal: 15,
+    paddingVertical: 20,
+    backgroundColor: "#eeeeee",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  mainImage: {
+    height: 220,
+    resizeMode: "contain",
+  },
+  content: {
+    padding: 15,
+  },
+});
+
 export default Article;
+
