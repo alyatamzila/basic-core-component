@@ -1,8 +1,9 @@
-import { View } from "react-native";
+import { Box } from "react-native";
+import React from "react";
 
 // Functional Component with props
 const Separator = (props) => {
-  return <View style={{ height: props.height }}></View>;
+  return <Box style={{ height: props.height }}></Box>;
 };
 
 export default Separator;

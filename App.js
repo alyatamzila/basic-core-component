@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+import { NativeBaseProvider, Box } from "native-base";
 import { View, DrawerLayoutAndroid, StatusBar } from "react-native";
 import Header from "./components/header";
 import Button from "./components/button";
@@ -34,19 +35,21 @@ const App = () => {
   );
 
   return (
-    <DrawerLayoutAndroid
-      ref={drawer}
-      drawerWidth={300}
-      drawerPosition="left"
-      renderNavigationView={navigationView}
-    >
-      <StatusBar style="light" backgroundColor="#AA0002" />
-      <View>
-        <Header drawer={drawer} />
-        {page == "list" ? <List /> : page == "article" ? <Article /> : null}
-      </View>
-    </DrawerLayoutAndroid>
-  );
+    <NativeBaseProvider>
+      <DrawerLayoutAndroid
+        ref={drawer}
+        drawerWidth={300}
+        drawerPosition="left"
+        renderNavigationView={navigationView}
+      >
+        <StatusBar style="light" backgroundColor="#AA0002" />
+        <View>
+          <Header drawer={drawer} />
+          {page == "list" ? <List /> : page == "article" ? <Article /> : null}
+        </View>
+      </DrawerLayoutAndroid>
+    </NativeBaseProvider>
+    );
 };
 
 export default App;
